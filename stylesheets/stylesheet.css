@@ -1,11 +1,11 @@
 body {
   margin: 2;
   padding: 0;
-  background-color: #151515;
+  background-color: rgb(138, 138, 138);
   color: #eaeaea;
   font: 16px;
   line-height: 1.5;
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-family: 'Open Sans',sans-serif;
 }
 
 
