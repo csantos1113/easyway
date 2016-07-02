@@ -87,13 +87,22 @@
 		return `<a href="${link}" target="_blank">Avianca</a>`;
 	}
 
+	function getDespegarLink(originCode, destinationCode, startYear, startMonthPad, startDayPad, endYear, endMonthPad, endDayPad) {
+		var link = 'http://www.despegar.com.co/shop/flights/results/roundtrip/' +
+			originCode + '/' +
+			destinationCode + '/' +
+			startYear + '-' + startMonthPad + '-' + startDayPad + '/' +
+			endYear + '-' + endMonthPad + '-' + endDayPad + '/1/0/0';
+		return `<a href="${link}" target="_blank">Despegar</a>`;
+	}
+
 	function showFlies(from, to) {
 		var originCode = from.code;
 		var originName = encodeURIComponent(from.name);
 		var destinationCode = to.code;
 		var destinationName = encodeURIComponent(to.name);
 		var selected = intervals[$("#options").val()];
-		if (!selected){
+		if (!selected) {
 			alert("It's not yet enabled.");
 			throw ("sorry");
 		}
@@ -113,19 +122,20 @@
 			var endLabel = `${endDayPad}${startDate.getMonthName()}`;
 			var lanLink = getLanLink(destinationCode, destinationName, endDayPad, endMonthPad, endYear, originCode, originName, startDayPad, startMonthPad, startYear);
 			var aviancaLink = getAviancaLink(originCode, destinationCode, startLabel, endLabel);
-			urls += `<tr><td>${startLabel} - ${endLabel}</td><td>${aviancaLink}</td><td>${lanLink}</td></tr>`;
+			var despegarLink = getDespegarLink(originCode, destinationCode, startYear, startMonthPad, startDayPad, endYear, endMonthPad, endDayPad);
+			urls += `<tr><td>${startLabel} - ${endLabel}</td><td>${aviancaLink}</td><td>${lanLink}</td><td>${despegarLink}</td></tr>`;
 			startDate.addDays(selected.nextWeek);
 		}
 		$('#content').html(`${$('#content').html()}<section><h2>${from.code} -> ${to.code} -> ${from.code}</h2><table>${urls}</table></section>`);
 	}
 
-	function generateLinks(){
+	function generateLinks() {
 		$('#content').html('');
 		for (var i = 0; i < trips.length; i++) {
 			showFlies(trips[i].from, trips[i].to);
 		}
 	}
-	$("#options").change(function(){
+	$("#options").change(function() {
 		generateLinks();
 	});
 

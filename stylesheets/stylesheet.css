@@ -18,7 +18,7 @@ table {
   margin-right: 5%;
   width: 93%;
 }
-@media (min-width: 640px) {
+@media (min-width: 780px) {
   section {
     width: 48%;
   }
