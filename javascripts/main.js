@@ -55,7 +55,7 @@
 			'&nadults=1' +
 			'&nchildren=0' +
 			'&ninfants=0';
-		return `<a href="${link}">LATAM</a>`;
+		return `<a href="${link}" target="_blank">LATAM</a>`;
 	}
 
 	function getAviancaLink(originCode, destinationCode, startLabel, endLabel) {
@@ -84,7 +84,7 @@
 			'&MPD=8621' +
 			'&IvaMPD=1379' +
 			'&WS=null';
-		return `<a href="${link}">Avianca</a>`;
+		return `<a href="${link}" target="_blank">Avianca</a>`;
 	}
 
 	function showFlies(from, to) {
