@@ -59,4 +59,7 @@ var trips = [{
 }, {
 	from: cali,
 	to: bogota
+}, {
+	from: bogota,
+	to: bucaramanga
 }];
