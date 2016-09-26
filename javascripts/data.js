@@ -37,6 +37,10 @@ var bucaramanga = {
 	code: 'BGA',
 	name: 'Bucaramanga'
 };
+var bogota = {
+	code: 'BOG',
+	name: 'Bogotá'
+};
 var trips = [{
 	from: medellin,
 	to: cali
@@ -49,4 +53,10 @@ var trips = [{
 }, {
 	from: cali,
 	to: bucaramanga
+}, {
+	from: medellin,
+	to: bogota
+}, {
+	from: cali,
+	to: bogota
 }];
